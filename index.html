@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#120a14">
+<title>Nuestra Historia de Amor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="hearts" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+
+<!-- Pantalla de entrada: el toque inicia la música sin bloqueos del navegador -->
+<div id="intro" class="intro">
+  <div class="intro-heart">♥</div>
+  <h1>Tengo algo para ti</h1>
+  <p>Sube el volumen y abre tu sorpresa</p>
+  <button id="openBtn" class="btn-main"><i class="fa-solid fa-envelope-open-text"></i> Abrir sorpresa</button>
+</div>
+
+<main class="app">
+  <header class="hero reveal">
+    <img id="heroImg" src="img/1.jfif" alt="Nuestra historia">
+    <div class="hero-shade"></div>
+    <div class="hero-text">
+      <h1 class="names">Para vos <span class="beat">♥</span></h1>
+      <p class="since"><i class="fa-solid fa-heart"></i> Juntos desde el 5 de noviembre de 2024</p>
+    </div>
+  </header>
+
+  <section class="glass reveal">
+    <h2>Tiempo juntos</h2>
+    <p class="sub">Cada segundo cuenta cuando estás enamorado</p>
+    <div class="counter">
+      <div class="tb"><b id="years">00</b><small>Años</small></div>
+      <div class="tb"><b id="months">00</b><small>Meses</small></div>
+      <div class="tb"><b id="days">00</b><small>Días</small></div>
+      <div class="tb"><b id="hours">00</b><small>Horas</small></div>
+      <div class="tb"><b id="minutes">00</b><small>Min</small></div>
+      <div class="tb live"><b id="seconds">00</b><small>Seg</small></div>
+    </div>
+  </section>
+
+  <section class="glass letter reveal">
+    <h2>Carta de Amor</h2>
+    <p class="sub">Palabras del corazón</p>
+    <div class="paper cursive" id="letterContent">
+      <div class="quote">“</div>
+      <p class="tw" data-text="Yani, mi gran amor,"></p>
+      <p class="tw" data-text="Las palabras parecen pequeñas para describir todo lo que siento por ti. Desde el 05 de noviembre de 2024, cada día es una nueva aventura."></p>
+      <p class="tw" data-text="Gracias por cada sonrisa, por cada abrazo y por construir conmigo los recuerdos más bonitos."></p>
+      <p class="tw love" data-text="Te amo infinitamente, Yanioska"></p>
+      <div class="tw sign" data-text="Con todo mi amor, Lewis"></div>
+    </div>
+  </section>
+
+  <section class="gallery reveal">
+    <h2><i class="fa-solid fa-heart"></i> Nuestros Recuerdos</h2>
+    <p class="sub">Toca una foto para verla en grande</p>
+    <div class="grid">
+      <figure class="card"><img src="img/7.jfif" alt="Mi vida" loading="lazy"><figcaption>Mi vida</figcaption></figure>
+      <figure class="card"><img src="img/3.jfif" alt="Momentos" loading="lazy"><figcaption>Momentos</figcaption></figure>
+      <figure class="card wide"><img src="img/5.jfif" alt="Nosotros" loading="lazy"><figcaption>Nosotros</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="gallery reveal">
+    <h2><i class="fa-solid fa-face-laugh-wink"></i> Nuestras historias</h2>
+    <p class="sub">Las risas y ocurrencias que nos hacen únicos</p>
+    <div class="grid">
+      <figure class="card"><img src="img/2.jfif" alt="Instantes locos" loading="lazy"><figcaption>Instantes locos</figcaption></figure>
+      <figure class="card"><img src="img/4.jfif" alt="Diversión total" loading="lazy"><figcaption>Diversión total</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="glass share reveal">
+    <h2>Comparte nuestra historia</h2>
+    <p class="sub">Escanea el código o compártelo directamente</p>
+    <div class="qr">
+      <img src="img/QR.png" alt="Código QR">
+      <button class="btn-main sm" id="downloadQrBtn"><i class="fa-solid fa-download"></i> Descargar QR</button>
+    </div>
+    <div class="row">
+      <a id="waBtn" class="btn-soc wa" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <button class="btn-soc cp" id="copyLinkBtn"><i class="fa-solid fa-copy"></i> Copiar link</button>
+    </div>
+  </section>
+
+  <footer>Hecho con <span class="beat">♥</span> para Yanioska</footer>
+</main>
+
+<div class="player" id="player">
+  <img src="img/7.jfif" alt="">
+  <div class="meta"><b>Solo tu</b><span>Beéle</span></div>
+  <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <button id="playPauseBtn" aria-label="Reproducir o pausar"><i class="fa-solid fa-play"></i></button>
+  <div class="bar"><div id="bar"></div></div>
+</div>
+<audio id="bgMusic" loop preload="auto">
+  <source src="music/Beéle - SOLO TÚ (Video oficial Lyrics) FILTRADO.mp3" type="audio/mpeg">
+</audio>
+
+<div id="lightbox" class="lb" aria-hidden="true">
+  <button class="lb-x" aria-label="Cerrar">&times;</button>
+  <button class="lb-n prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lbImg" alt="">
+  <button class="lb-n next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  <p id="lbCap"></p>
+</div>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
